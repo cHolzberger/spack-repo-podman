@@ -36,7 +36,7 @@ class Buildah(MakefilePackage):
 
     version('1.14.0', sha256='3eb637c5a5b35ba865886d20ce937e7c6b2929573c03af09a86c3be11151ec80')
 
-    depends_on('go')
+    depends_on('go',type='build')
     depends_on('go-md2man', type='build')
     depends_on('gpgme')
     depends_on('libassuan')

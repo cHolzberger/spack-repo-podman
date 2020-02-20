@@ -40,6 +40,5 @@ class Conmon(MakefilePackage):
 
     def install(self, spec, prefix):
       make('install',
-             'DESTDIR={0}'.format(prefix),
              'PREFIX={0}'.format(prefix)) 
  

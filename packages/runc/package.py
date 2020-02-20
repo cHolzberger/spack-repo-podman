@@ -36,10 +36,7 @@ class Runc(MakefilePackage):
 
     version('1.0.0-rc10', sha256='6b44985023347fb9c5a2cc6f761df8c41cc2c84a7a68a6e6acf834dff6653a9a')
 
-    # FIXME: Add dependencies if required.
-    # depends_on('foo')
-
-    depends_on('go')
+    depends_on('go',type='build')
     depends_on('go-md2man', type='build')
     depends_on('gpgme')
     depends_on('libassuan')

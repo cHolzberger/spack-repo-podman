@@ -40,7 +40,7 @@ class Libpod(MakefilePackage):
 
     # FIXME: Add dependencies if required.
     # depends_on('foo')
-    depends_on('go')
+    depends_on('go', type="build")
     depends_on('go-md2man', type='build')
     depends_on('gpgme')
     depends_on('libassuan')
@@ -64,9 +64,12 @@ class Libpod(MakefilePackage):
        mkdirp(ppath)
        shutil.move(stsrc+"_old",srcpath)
 
+    def build(self, spec, prefix):
+       with working_dir( self.build_directory ):
+         make('podman','BUILDTAGS=systemd seccomp exclude_graphdriver_btrfs	exclude_graphdriver_devicemapper')
+
     def install(self, spec, prefix):
        with working_dir( self.build_directory ):
          make('install',
-             'DESTDIR={0}'.format(prefix),
              'PREFIX={0}'.format(prefix)) 
  
