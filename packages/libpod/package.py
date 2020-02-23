@@ -56,10 +56,11 @@ class Libpod(MakefilePackage):
         env['GOPATH'] = self.stage.source_path
    
     def do_stage(self, mirror_only=False):
+       """ move the source dir to src/github.com/xxx/xxx go likes it this way """
        super().do_stage(mirror_only)
        stsrc = self.stage.source_path
        srcpath = os.path.join( stsrc, self.build_directory )
-       ppath = os.path.join( stsrc, "src", "github.com", "opencontainers" )
+       ppath = ancestor (srcpath)
        shutil.move(stsrc, stsrc+"_old")
        mkdirp(ppath)
        shutil.move(stsrc+"_old",srcpath)
