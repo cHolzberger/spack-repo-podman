@@ -51,6 +51,7 @@ class Libpod(MakefilePackage):
     depends_on('runc')
     depends_on('crun')
     depends_on('cni-plugins')
+    depends_on('catatonit')
 
     build_directory = os.path.join( "src", "github.com", "containers", "libpod" )
  
