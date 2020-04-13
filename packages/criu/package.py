@@ -45,12 +45,13 @@ class Criu(MakefilePackage):
     depends_on('libnet')
 #    depends_on('libcap')
     depends_on('libaio')
-
-
+    def edit(self, spec, prefix):
+        env['GITID'] = 'release'
+ 
     def build(self, spec, prefix):
-       make("WERROR=0")
+       make("WERROR=0","GITID=release")
 
     def install(self, spec, prefix):
          make('install',
-             'PREFIX={0}'.format(prefix),'ETCDIR={0}/etc'.format(prefix)) 
+             'PREFIX={0}'.format(prefix),'ETCDIR={0}/etc'.format(prefix),"GITID=release") 
  

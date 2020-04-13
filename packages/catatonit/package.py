@@ -28,13 +28,14 @@ class Catatonit(AutotoolsPackage):
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://www.example.com"
-    url      = "https://github.com/openSUSE/catatonit/releases/download/v0.1.4/catatonit.tar.xz"
+    url      = "https://github.com/openSUSE/catatonit/releases/download/v0.1.5/catatonit.tar.xz"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
     # maintainers = ['github_user1', 'github_user2']
 
     version('0.1.4', sha256='5b6dab80839b4246484ca861764899cbc21eecaff4740d2cb6a0463bc70bf63b')
+    version('0.1.5', sha256='4c45e2230235751731da3daabe130abce70b3ef37d0b1936cbc90a46b475cf08')
 
     depends_on('autoconf', type='build')
     depends_on('automake', type='build')

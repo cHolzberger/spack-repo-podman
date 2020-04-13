@@ -28,13 +28,14 @@ class Buildah(MakefilePackage):
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://www.example.com"
-    url      = "https://github.com/containers/buildah/archive/v1.14.0.tar.gz"
+    url      = "https://github.com/containers/buildah/archive/v1.14.5.tar.gz"
 
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
     # maintainers = ['github_user1', 'github_user2']
 
     version('1.14.0', sha256='3eb637c5a5b35ba865886d20ce937e7c6b2929573c03af09a86c3be11151ec80')
+    version('1.14.5', sha256='74633280c814d340ed32653106bc706f306cf78afb57bb51c3cdca8893d95bd4')
 
     depends_on('go',type='build')
     depends_on('go-md2man', type='build')
