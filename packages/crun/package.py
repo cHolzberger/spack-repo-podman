@@ -44,6 +44,7 @@ class Crun(AutotoolsPackage):
     depends_on('libgpg-error')
     depends_on('libseccomp')
     depends_on('lvm2')
+    depends_on('libcap')
     #depends_on('criu')
     depends_on('go-md2man', type=('build'))
     
