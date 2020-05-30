@@ -34,6 +34,7 @@ class Buildah(MakefilePackage):
     # notify when the package is updated.
     # maintainers = ['github_user1', 'github_user2']
 
+    version('1.14.9', sha256='fa084af683a9f91bdc0fe24077ad56ec1bc9f4f98445ddcba4e0796710281adf')
     version('1.14.0', sha256='3eb637c5a5b35ba865886d20ce937e7c6b2929573c03af09a86c3be11151ec80')
     version('1.14.5', sha256='74633280c814d340ed32653106bc706f306cf78afb57bb51c3cdca8893d95bd4')
 
