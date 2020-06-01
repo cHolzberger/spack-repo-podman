@@ -33,7 +33,7 @@ class Runc(MakefilePackage):
     # FIXME: Add a list of GitHub accounts to
     # notify when the package is updated.
     # maintainers = ['github_user1', 'github_user2']
-
+    version('1.0.0-rc10', sha256='6b44985023347fb9c5a2cc6f761df8c41cc2c84a7a68a6e6acf834dff6653a9a')
     version('1.0.0-rc10', sha256='6b44985023347fb9c5a2cc6f761df8c41cc2c84a7a68a6e6acf834dff6653a9a')
 
     depends_on('go',type='build')

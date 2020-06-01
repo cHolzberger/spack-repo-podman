@@ -71,6 +71,7 @@ class Libpod(MakefilePackage):
 
     def build(self, spec, prefix):
        with working_dir( self.build_directory ):
+         env['GIT_COMMIT']="v1.14.0"
          make('podman','BUILDTAGS=systemd seccomp exclude_graphdriver_btrfs	exclude_graphdriver_devicemapper','ETCDIR={0}/etc'.format(prefix))
 
     def install(self, spec, prefix):
