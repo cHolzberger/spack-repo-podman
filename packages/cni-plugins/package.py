@@ -36,7 +36,8 @@ class CniPlugins(Package):
     # maintainers = ['github_user1', 'github_user2']
 
     version('0.8.5', sha256='9d1526ed965ac6562fd95a931ab2346b3c5efd58c2f569038ba3c530f7e66472')
-
+    version('0.8.6', sha256='3a77de1fcd3b818a2062d9208cab3492ad5cf8177f8fb5e86419e81143c86fa5')
+    
     # FIXME: Add dependencies if required.
     depends_on('cni')
 

@@ -38,7 +38,7 @@ class Libpod(MakefilePackage):
     version('1.9.3', sha256='2c44c6e5f61578e223dce2a2f48776adb553752a782e309e96f2d608e0ace81b')
     version('1.8.2',     sha256='69f7ff81da1510ebf2962c1de3170675ca3cd8a24bc00c93742a24bcce17c752')
     version('1.8.0',     sha256='2f771dc5505bd29e21e18a71e6eac549d036ad34fbbec5646ae0c7bfe024eeb5')
-
+    version('2.0.2', sha256='5fee5873e00ecbbf8c47d5519d0f138e5a322716d8d2306f4e45ab71f0a079c6')
     # FIXME: Add dependencies if required.
     # depends_on('foo')
     depends_on('go', type="build")
@@ -69,13 +69,15 @@ class Libpod(MakefilePackage):
        mkdirp(ppath)
        shutil.move(stsrc+"_old",srcpath)
 
+    buildtags='systemd seccomp exclude_graphdriver_btrfs exclude_graphdriver_devicemapper'
     def build(self, spec, prefix):
        with working_dir( self.build_directory ):
-         env['GIT_COMMIT']="v1.14.0"
-         make('podman','BUILDTAGS=systemd seccomp exclude_graphdriver_btrfs	exclude_graphdriver_devicemapper','ETCDIR={0}/etc'.format(prefix))
-
+         env['GIT_COMMIT']="v{}".format(self.version)
+         make('podman','BUILDTAGS={}'.format(self.buildtags),'ETCDIR={0}/etc'.format(prefix))
+         make('podman-remote','BUILDTAGS={}'.format(self.buildtags),'ETCDIR={0}'.format(prefix))
+         make('doc')
     def install(self, spec, prefix):
        with working_dir( self.build_directory ):
          make('install',
-             'PREFIX={0}'.format(prefix),'ETCDIR={0}/etc'.format(prefix)) 
+             'PREFIX={0}'.format(prefix),'BUILDTAGS={}'.format(self.buildtags),'ETCDIR={0}/etc'.format(prefix)) 
  

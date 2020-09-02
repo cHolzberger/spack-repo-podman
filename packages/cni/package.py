@@ -36,6 +36,7 @@ class Cni(Package):
     # maintainers = ['github_user1', 'github_user2']
 
     version('0.7.1', sha256='4517eabfd65aea2012dc48d057bf889a0a41ed9837387d95cd1e36c0dbddcfd4')
+    version('0.8.0', sha256='df8afe3eeae3296ba33ca267041c42f13135c3a067bf2d932761bb02998247a6') 
 
     build_directory = os.path.join( "src", "github.com", "containernetworking", "cni" )
     # FIXME: Add dependencies if required.
